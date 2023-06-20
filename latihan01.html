@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery ajax</title>
+</head>
+<body>
+   
+    <div id="nama"></div>
+    <div id="email"></div>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            let urltarget= "https://webpro.ptov.my.id/api/curduser.php?aksi=get";
+
+            $.ajax({
+                url: urltarget, 
+                success: function(dta, stt, xhr){
+                    console.log(dta.isi);
+                    $("#nama").html(dta.isi[0][0])
+                    $("#email").html(dta.isi[0][1])
+
+                }
+            });
+            $.get();
+            $.post();
+        });
+    </script>
+</body>
+</html>
